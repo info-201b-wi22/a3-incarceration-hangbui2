@@ -5,67 +5,64 @@ output: html_document
 
 ### Introduction
 
-An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)
+In this assignment, I will be exploring the disparities between different genders in the rates of incarceration. This can allow us to better understand any gender-based discrimination in the justice system by looking at to what extent the proportion of males and females differ in jail across the country. 
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+```{r, echo=FALSE, message=FALSE}
+source("./summary.R")
+```
 
-These will likely be calculated using your DPLYR skills, answering questions such as: 
-
-- What is the average value of my variable across all the counties (in the current year)?
-- Where is my variable the highest / lowest?
-- How much has my variable change over the last N years?
-
-Feel free to calculate and report values that you find relevant. Again, remember that the purpose is to think about how these measure of incarceration vary by race.
+From my findings, I found that the number of males in prison greatly differ from the number of females in prison. The total amount of males in prison in the most recent date in 2018 is `summary_info$total_m_prison_2018` people, compared to `summary_info$total_f_prison_2018` of females. The year with the highest male in prison is `summary_info$high_m_year` of `summary_info$high_m_value` males. The year with the highest female in prison is `summary_info$high_f_year` of `summary_info$high_f_value` females. The average change (increase) in number of each gender to go to jail is  `summary_info$m_change` for males and `summary_info$f_change` for females.
 
 ### The Dataset
 
-Who collected the data?  
-How was the data collected or generated?  
-Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
+The Incarceration Trends data was created by Vera Institute of Justice, which reports on the county and jurisdiction level jail data from 1970- 2018 and prison data 1983-2016. The extensive research and grants allow the data to cover a wide variety of incarceration trends nationwide and across many years, as well as continuing updates in recent years. Vera also continued to update the data set with additional research  and grants. The dataset was collected because research on incarceration has traditionally been centered on state level data and they wanted find data that was more robust by finding the county-level variability in incarceration rates in the US and unpack many more of its causes and consequences. 
 
+There are 153,811 observations in this data, with findings across 121 features. An ethical consideration is that any findings derived from interpreting or visualizing this data set would only be a correlation, that one must be careful in making assumptions about the entire population based on a result. Incarceration is a very sensitive subject that considers a wide range of topics like gender, race, region, demographics that could vary greatly amongst many different individuals. A limitation of the dataset is the number of unknown values there are present in the data, either due to uncertainty in data-collection over decades ago, or in remote areas with little amount of data on incarceration. This is can alter the accuracy of some of the values calculated as NA values would be omitted from overall calculations.
 
 ### Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The first chart that you will create and include will show the trend over time of your variable/topic. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - This may mean showing the same measure for different locations or different racial groups. Think carefully about a meaningful comparison of locations (e.g., the top 10 counties in a state, top 10 states, etc.)
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
+``````{r, echo = FALSE, message = FALSE, code = readLines("chart1.R")}
 ```
+
+This table shows the difference in trend of the number of male and female in jail from 1970-2018
+
+#### Purpose
+By looking at the trends in numbers of male and female in jail, we can see the disparities between genders in incarceration rates, and derive possible reasons for this difference over the years. Understanding the trend in number of people in jail over the years can also allow us to derive possible events in each year that may influences rates of incarcerations and further explain gender disparities. 
+
+#### Insights
+* Females always have a much lower number of people in prison compared to males. Overtime, this gap between the genders widen, with the highest difference around 2007 and 2008
+
+* Number of females in Jail has slowly and gradually increase over the years, with only around over 100,000 in jail in 2018
+
+* Number of males however has rapidly increased over the year, peaking around 2007-2008 and falling back down in the years after. 
 
 ### Variable Comparison Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+``````{r, echo = FALSE, message=FALSE, code = readLines("chart2.R")}
+```
 
-The second chart that you will create and include will show how two different (continuous) variables are related to one another. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
+Scatter plots showing the relationship of proportion of the **overall county population** that female/male and proportion of female/male population **in jail**.
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- If you choose to add a color encoding (not required), you need a legend for your different color and a clear legend title
+#### Purpose 
+By deriving the overall population proportion of each gender in the county and comparing it to the proportion of each gender in jail, we can see if any increase/decrease in a gender in jail would just simply be due to an overall increase in that gender in the total county population. This would therefore not be due to disparities caused by the different genders.
+
+#### Insights
+* Although the majority of the counties had equal numbers of males and female population, there were more counties  that had a higher proportion of males of ages between 15-64. 
+
+* The two variables (% from population of each gender and % of each gender in jail) were not quite correlated, percentage of people in jail had significantly higher numbers of males than female, even with counties that had equal numbers of male and female.
 
 ### Map
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+``````{r, echo = FALSE, message = FALSE, code = readLines("map.R")}
+```
 
-The last chart that you will create and include will show how a variable is distributed geographically. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
+#### Purpose
+These maps compares total number of males and females across each states. Firstly, by looking at the differences in numbers of people in jail by state, we can understand which states has high amounts of incarceration and those who have low amounts. From this, find possible reasons for these differences by looking at local events and crimes that are renowned in these states. I also created separate maps for male and female to find out whether there are any differences in gender in incarceration in each state, and potentially conduct additional research on why these differences occur.
 
-- Your map needs a title
-- Your color scale needs a legend with a clear label
-- Use a map based coordinate system to set the aspect ratio of your map
-- Use a minimalist theme for the map 
+#### Insights
+* States with large populations like California and Texas has the highest number of both male and female in jail. High population in this case would probably be the reason for the high number of people in jail overall.
+
+* There were not many differences in male and female numbers in jail across the different state. There were differences in some Midwestern and Southern states like Ohio, Kentucky and Tennessee. Any other differences are very subtle.
+
