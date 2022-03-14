@@ -13,13 +13,13 @@ In this assignment, I will be exploring the disparities between different gender
 source("./summary.R")
 ```
 
-From my findings, I found that the number of males in prison greatly differ from the number of females in prison. The total amount of males in prison in the most recent date in 2018 is `summary_info$total_m_prison_2018` people, compared to `summary_info$total_f_prison_2018` of females. The year with the highest male in prison is `summary_info$high_m_year` of `summary_info$high_m_value` males. The year with the highest female in prison is `summary_info$high_f_year` of `summary_info$high_f_value` females. The average change (increase) in number of each gender to go to jail is  `summary_info$m_change` for males and `summary_info$f_change` for females.
+From my findings, I found that the number of males in prison greatly differ from the number of females in prison. The total amount of males in prison in the most recent date in 2018 is `r summary_info$total_m_prison_2018` (620148) people, compared to `r summary_info$total_f_prison_2018` (103837.9) of females. The year with the highest male in prison is `r summary_info$high_m_year` of `r summary_info$high_m_value` (680613.7) males. The year with the highest female in prison is `r summary_info$high_f_year` of `r summary_info$high_f_value` (103837.9) females. The average change (increase) in number of each gender to go to jail is  `r summary_info$m_change` for males and `r summary_info$f_change` for females.
 
 ### The Dataset
 
 The Incarceration Trends data was created by Vera Institute of Justice, which reports on the county and jurisdiction level jail data from 1970- 2018 and prison data 1983-2016. The extensive research and grants allow the data to cover a wide variety of incarceration trends nationwide and across many years, as well as continuing updates in recent years. Vera also continued to update the data set with additional research  and grants. The dataset was collected because research on incarceration has traditionally been centered on state level data and they wanted find data that was more robust by finding the county-level variability in incarceration rates in the US and unpack many more of its causes and consequences. 
 
-There are 153,811 observations in this data, with findings across 121 features. An ethical consideration is that any findings derived from interpreting or visualizing this data set would only be a correlation, that one must be careful in making assumptions about the entire population based on a result. Incarceration is a very sensitive subject that considers a wide range of topics like gender, race, region, demographics that could vary greatly amongst many different individuals. A limitation of the dataset is the number of unknown values there are present in the data, either due to uncertainty in data-collection over decades ago, or in remote areas with little amount of data on incarceration. This is can alter the accuracy of some of the values calculated as NA values would be omitted from overall calculations.
+There are 153,811 observations in this data, with findings across 121 features. An ethical consideration is that any findings derived from interpreting or visualizing this data set would only be a correlation, that one must be careful in making assumptions about the entire population based on a result. Incarceration is a very sensitive subject that considers a wide range of topics like gender, race, region, demographics that could vary greatly amongst many different individuals. A limitation of the data set is the number of unknown values there are present in the data, either due to uncertainty in data-collection over decades ago, or in remote areas with little amount of data on incarceration. This is can alter the accuracy of some of the values calculated as NA values would be omitted from overall calculations.
 
 ### Trends Over Time Chart
 
@@ -40,7 +40,7 @@ By looking at the trends in numbers of male and female in jail, we can see the d
 
 ### Variable Comparison Chart
 
-``````{r, echo = FALSE, message=FALSE, code = readLines("chart2.R")}
+``````{r, echo = FALSE, message=FALSE, warning=FALSE, code = readLines("chart2.R")}
 ```
 
 Scatter plots showing the relationship of proportion of the **overall county population** that female/male and proportion of female/male population **in jail**.
