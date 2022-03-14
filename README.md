@@ -29,4 +29,4 @@ For this assignment, you will create an .Rmd report about incarceration in the U
 - A chart that compares two variables to one another
 - A map that shows how your measure of interest varies geographically
 
-Once you have completed your report, make sure to **change your repository settings** so that you can view the hosted website, which will be available at https://info-201b-wi22.github.io/REPO_NAME
+Once you have completed your report, make sure to **change your repository settings** so that you can view the hosted website, which will be available at https://info-201b-wi22.github.io/a3-incarceration-hangbui2/
